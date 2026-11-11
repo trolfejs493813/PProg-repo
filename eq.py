@@ -17,6 +17,8 @@ def menu():
         if m == 1:
             opcja1()
 
+
+asdfas
         elif m == 2:
             item = input("Co chcesz dodac: ")
             b = int(input(f"Wprowadź ilosc {item} do dodania: "))
