@@ -1,17 +1,17 @@
 def menu():
     ekwipunek = {
-        miecz {
-            "waga": 10
-            "ilosc": 1
-            "wartosc": 1}
-        mikstura {
-            "waga": 10
-            "ilosc": 1
-            "wartosc": 1}, 
-        zloto {
-        "waga": 10
-        "ilosc": 1
-        "wartosc": 1}}
+        "miecz": {
+            "waga": 10,
+            "ilosc": 1,
+            "wartosc": 1},
+        "mikstura": {
+            "waga": 10,
+            "ilosc": 1,
+            "wartosc": 1},
+        "zloto": {
+            "waga": 10,
+            "ilosc": 1,
+            "wartosc": 1}}
     while True:
         m = int(input("Jaka opcja (1-5): "))
         if m == 1:
