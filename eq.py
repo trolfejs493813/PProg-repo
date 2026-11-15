@@ -24,8 +24,11 @@ def opcja2(ekwipunek, waga_maksymalna):
         item = input("Co chcesz kupic: ").lower()
         b = int(input(f"Wprowadź ilosc {item} do kupienia: "))
         if item in ekwipunek:
-            ekwipunek[item]["ilosc"] += b
-            ekwipunek["zloto"]["ilosc"] -= b * ekwipunek[item]["cena"]
+            if ekwipunek["zloto"]["ilosc"] < b * ekwipunek[item]["cena"]:
+                print("Nie masz wystarczajaco zlota")
+            else:
+                ekwipunek[item]["ilosc"] += b
+                ekwipunek["zloto"]["ilosc"] -= b * ekwipunek[item]["cena"]
         else:
             print("Nie ma takiego przedmiotu w sklepie")
         aktualizuj_wartosci(ekwipunek)
@@ -40,11 +43,13 @@ def opcja2(ekwipunek, waga_maksymalna):
             waga = int(input(f"Wprowadź wage {item}: "))
             cena = int(input(f"Wprowadź cenę {item}: "))
             ekwipunek[item] = {"waga": waga, "ilosc": b, "cena": cena}
-        aktualizuj_wartosci(ekwipunek)
 
         if waga_calowita(ekwipunek) > waga_maksymalna:
             print("Przekroczono maksymalna wage")
             ekwipunek[item]["ilosc"] -= b
+        
+        aktualizuj_wartosci(ekwipunek)
+
 
 
 def opcja3(ekwipunek):
@@ -67,7 +72,7 @@ def opcja4(ekwipunek):
     item = input("Co chcesz sprawdzic: ").lower()
 
     if item in ekwipunek:
-        print(f"ilosc = {ekwipunek[item]['ilosc']} ")
+        print(f"ilosc  w eq = {ekwipunek[item]['ilosc']} ")
         print(f"waga calkowita = {ekwipunek[item]['wartosc']}")
         print(f"waga 1 przedmiotu = {ekwipunek[item]['waga']}")
         print(f"cena 1 przedmiotu = {ekwipunek[item]['cena']}")
