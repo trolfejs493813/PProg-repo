@@ -2,14 +2,21 @@ def waga_calowita(ekwipunek):
     return sum(item["waga"] * item["ilosc"] for item in ekwipunek.values())
 
 def aktualizuj_wartosci(ekwipunek):
+    for item in list(ekwipunek):
+        if ekwipunek[item]["ilosc"] == 0:
+            del ekwipunek[item]
+
     for item in ekwipunek.values():
         item["wartosc"] = item["waga"] * item["ilosc"]
 
 
 
 def opcja1(ekwipunek, waga_maksymalna):
+
+
     for item in ekwipunek:
         print(f"{item}: {ekwipunek[item]['ilosc']}, {ekwipunek[item]['wartosc']}")
+    
 
     print(f"Calkowita waga: {waga_calowita(ekwipunek)}/{waga_maksymalna}")
 
@@ -92,7 +99,7 @@ def menu():
                 "mikstura": {
                     "waga": 10,
                     "ilosc": 10,
-                    "cena": 100
+                    "cena": 10
                     },
                 "zloto": {
                     "waga": 1,
